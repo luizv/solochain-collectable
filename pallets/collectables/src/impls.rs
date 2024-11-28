@@ -1,7 +1,22 @@
 use super::*;
 use frame_support::pallet_prelude::*;
+use sp_runtime::traits::{BlakeTwo256, Hash};
 
 impl<T: Config> Pallet<T> {
+    // Generates and returns DNA
+    pub fn gen_dna() -> [u8; 32] {
+        // Create randomness payload. Multiple kitties can be generated in the same block,
+        // retaining uniqueness.
+        let unique_payload = (
+            frame_system::Pallet::<T>::parent_hash(),
+            frame_system::Pallet::<T>::block_number(),
+            frame_system::Pallet::<T>::extrinsic_index(),
+            CountForKitties::<T>::get(),
+        );
+
+        BlakeTwo256::hash_of(&unique_payload).into()
+    }
+
     pub fn mint(owner: T::AccountId, dna: [u8; 32]) -> DispatchResult {
         ensure!(!Kitties::<T>::contains_key(dna), Error::<T>::DuplicateKitty);
         let kitty = Kitty {
