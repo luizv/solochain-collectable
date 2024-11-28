@@ -58,6 +58,15 @@ pub mod pallet {
 
         /// The user has too many kitties
         TooManyOwned,
+
+        /// The kitty does not exist
+        NoKitty,
+
+        /// Cannot transfer to self
+        TransferToSelf,
+
+        /// The owner does not match
+        NotOwner,
     }
 
     #[derive(Encode, Decode, TypeInfo, MaxEncodedLen)]
