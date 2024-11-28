@@ -22,6 +22,7 @@ impl<T: Config> Pallet<T> {
         let kitty = Kitty {
             dna,
             owner: owner.clone(),
+            price: None,
         };
         let current_count: u32 = CountForKitties::<T>::get();
         let new_count = current_count
@@ -54,6 +55,7 @@ impl<T: Config> Pallet<T> {
             return Err(Error::<T>::NoKitty.into());
         }
 
+        kitty.price = None;
         Kitties::<T>::insert(kitty_id, kitty);
         KittiesOwned::<T>::insert(&to, to_owned);
         KittiesOwned::<T>::insert(&from, from_owned);
