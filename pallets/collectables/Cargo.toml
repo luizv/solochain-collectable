@@ -20,7 +20,6 @@ frame-support.workspace = true
 frame-system.workspace = true
 sp-runtime = { default-features = true, workspace = true }
 
-
 [dev-dependencies]
 sp-core = { default-features = true, workspace = true }
 sp-io = { default-features = true, workspace = true }

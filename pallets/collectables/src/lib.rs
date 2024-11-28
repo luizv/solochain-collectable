@@ -5,6 +5,7 @@ mod impls;
 mod tests;
 
 use codec::{Decode, Encode, MaxEncodedLen};
+use frame_support::traits::tokens::fungible::{Inspect, Mutate};
 pub use pallet::*;
 use scale_info::TypeInfo;
 
@@ -20,6 +21,7 @@ pub mod pallet {
     #[pallet::config]
     pub trait Config: frame_system::Config {
         type RuntimeEvent: From<Event<Self>> + IsType<<Self as frame_system::Config>::RuntimeEvent>;
+        type NativeBalance: Inspect<Self::AccountId> + Mutate<Self::AccountId>;
     }
 
     #[pallet::storage]
