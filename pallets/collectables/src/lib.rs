@@ -83,6 +83,12 @@ pub mod pallet {
 
         /// The owner does not match
         NotOwner,
+
+        /// The kitty is not for sale
+        NotForSale,
+
+        /// Max price is too low
+        MaxPriceTooLow,
     }
 
     #[derive(Encode, Decode, TypeInfo, MaxEncodedLen)]
