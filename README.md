@@ -1,3 +1,12 @@
+# Substrate Collectables Workshop
+
+
+This codebase is a bare example of a CryptoKittie's Marketplace on a Substrate's Solochain. It was a code-along from [this workshop tutorial](https://www.shawntabrizi.com/substrate-collectables-workshop/0/index.html) created by [Shawn Tabrizi](https://github.com/shawntabrizi).
+
+
+-------
+-------
+
 # Substrate Node Template
 
 A fresh [Substrate](https://substrate.io/) node, ready for hacking :rocket:
